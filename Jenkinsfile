@@ -16,8 +16,8 @@ node {
         }
     }
     stage('Deploy') {
-        sh './jenkins/scripts/deliver.sh' 
+        sh './sources/deliver.sh' 
         sleep(60)
-        sh './jenkins/scripts/kill.sh'
+        sh './sources/scripts/kill.sh'
     }
 }
