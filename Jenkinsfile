@@ -18,8 +18,8 @@ node {
     }
     stage('Deploy') {
         sh 'ls sources/'
-        sh './sources/deliver.sh' 
+        sh './jenkins/scripts/deliver.sh' 
         sleep(60)
-        sh './sources/kill.sh'
+        sh './jenkins/scripts/kill.sh'
     }
 }
