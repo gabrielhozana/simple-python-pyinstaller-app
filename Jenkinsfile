@@ -16,9 +16,9 @@ node {
         }
     }
     stage('Deploy') {
-        sh 'ls sources/scripts/'
-        sh './sources/scripts/deliver.sh' 
+        sh 'ls sources/'
+        sh './sources/deliver.sh' 
         sleep(60)
-        sh './sources/scripts/kill.sh'
+        sh './sources/kill.sh'
     }
 }
