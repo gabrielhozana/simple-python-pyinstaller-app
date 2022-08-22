@@ -10,4 +10,16 @@ node {
             sh 'py.test sources/test_calc.py'
         }
     }
+    stage('Manual Approval'){
+        docker.image('python:2-alpine').inside {
+            input message: 'Lanjutkan ke tahap Deploy?'
+        }
+    }
+    stage('Deploy') {
+        docker.image('python:2-alpine').inside {
+            sh './jenkins/scripts/deliver.sh' 
+            sleep(60)
+            sh './jenkins/scripts/kill.sh'
+        }
+    }
 }
